@@ -2,7 +2,21 @@ import { InventoryItem } from "@/types/inventory";
 import inventoryData from "@/data/inventory.json";
 
 export function getAllItems(): InventoryItem[] {
-  return inventoryData as InventoryItem[];
+  // Normalize specifications to ensure all values are strings
+  return inventoryData.map((item: any) => {
+    const normalizedSpecs: Record<string, string> = {};
+    if (item.specifications) {
+      Object.entries(item.specifications).forEach(([key, value]) => {
+        if (value !== undefined && value !== null) {
+          normalizedSpecs[key] = String(value);
+        }
+      });
+    }
+    return {
+      ...item,
+      specifications: normalizedSpecs,
+    } as InventoryItem;
+  });
 }
 
 export function getItemById(id: string): InventoryItem | undefined {
