@@ -1,0 +1,210 @@
+[
+  {
+    "id": "pokemon-151-pack",
+    "title": "Pokémon TCG: Scarlet & Violet—151 Booster Pack",
+    "category": "Collectibles",
+    "condition": "Sealed",
+    "availability": "Available",
+    "images": ["151-Pack.jpg"],
+    "description": "Official Pokémon Trading Card Game booster pack from the Scarlet & Violet—151 expansion. Features iconic Pokémon Mew artwork. Contains 10 additional game cards. Sealed and ready for collection.",
+    "specifications": {
+      "Set": "Scarlet & Violet—151",
+      "Cards per Pack": "10",
+      "Age Rating": "6+",
+      "Condition": "Sealed"
+    },
+    "tags": ["Pokémon", "TCG", "Trading Cards", "Booster Pack", "Scarlet & Violet", "151", "Mew"]
+  },
+  {
+    "id": "pokemon-151-booster-bundle",
+    "title": "Pokémon TCG: Scarlet & Violet—151 Booster Bundle",
+    "category": "Collectibles",
+    "condition": "Sealed",
+    "availability": "Available",
+    "images": ["151-Booster-Bundle.avif"],
+    "description": "Booster bundle containing multiple booster packs from the Scarlet & Violet—151 expansion. Perfect for collectors seeking multiple packs from this iconic set.",
+    "specifications": {
+      "Set": "Scarlet & Violet—151",
+      "Type": "Booster Bundle",
+      "Condition": "Sealed"
+    },
+    "tags": ["Pokémon", "TCG", "Booster Bundle", "Scarlet & Violet", "151"]
+  },
+  {
+    "id": "pokemon-151-mini-tins-5pack",
+    "title": "Pokémon TCG: Scarlet & Violet—151 Mini Tins (5-Pack)",
+    "category": "Collectibles",
+    "condition": "Sealed",
+    "availability": "Available",
+    "images": ["151-Mini-Tins-5Pack.avif"],
+    "description": "Set of 5 mini tins from the Scarlet & Violet—151 expansion. Each tin contains booster packs and collectible items. Sealed and authentic.",
+    "specifications": {
+      "Set": "Scarlet & Violet—151",
+      "Quantity": "5 Mini Tins",
+      "Condition": "Sealed"
+    },
+    "tags": ["Pokémon", "TCG", "Mini Tins", "Scarlet & Violet", "151"]
+  },
+  {
+    "id": "pokemon-151-blooming-waters",
+    "title": "Pokémon TCG: Scarlet & Violet—151 Blooming Waters",
+    "category": "Collectibles",
+    "condition": "Sealed",
+    "availability": "Available",
+    "images": ["151-Blooming-Waters.avif"],
+    "description": "Special edition Blooming Waters pack from the Scarlet & Violet—151 expansion. Limited edition collectible item.",
+    "specifications": {
+      "Set": "Scarlet & Violet—151",
+      "Edition": "Blooming Waters",
+      "Condition": "Sealed"
+    },
+    "tags": ["Pokémon", "TCG", "Scarlet & Violet", "151", "Blooming Waters", "Limited Edition"]
+  },
+  {
+    "id": "pokemon-prismatic-pack",
+    "title": "Pokémon TCG: Prismatic Pack",
+    "category": "Collectibles",
+    "condition": "Sealed",
+    "availability": "Available",
+    "images": ["Prismatic-Pack.webp"],
+    "description": "Prismatic pack from the Pokémon Trading Card Game. Features unique prismatic design and collectible cards.",
+    "specifications": {
+      "Type": "Prismatic Pack",
+      "Condition": "Sealed"
+    },
+    "tags": ["Pokémon", "TCG", "Prismatic", "Collectibles"]
+  },
+  {
+    "id": "pokemon-prismatic-2pack",
+    "title": "Pokémon TCG: Prismatic 2-Pack",
+    "category": "Collectibles",
+    "condition": "Sealed",
+    "availability": "Available",
+    "images": ["prismatic-2pack-new.jpeg", "Prismatic-2Pack.avif"],
+    "description": "Two-pack bundle of Prismatic packs featuring premium artwork and collectible cards. Great value for collectors seeking multiple packs from this exclusive series.",
+    "specifications": {
+      "Type": "Prismatic 2-Pack",
+      "Quantity": "2 Packs",
+      "Series": "Prismatic",
+      "Condition": "Sealed"
+    },
+    "tags": ["Pokémon", "TCG", "Prismatic", "2-Pack", "Bundle", "Collectibles"]
+  },
+  {
+    "id": "pokemon-prismatic-etb",
+    "title": "Pokémon TCG: Prismatic Elite Trainer Box",
+    "category": "Collectibles",
+    "condition": "Sealed",
+    "availability": "Available",
+    "images": ["Prismatic-ETB.jpg"],
+    "description": "Elite Trainer Box from the Prismatic series. Includes multiple booster packs, dice, damage counters, and other accessories. Premium collectible item.",
+    "specifications": {
+      "Type": "Elite Trainer Box",
+      "Series": "Prismatic",
+      "Condition": "Sealed"
+    },
+    "tags": ["Pokémon", "TCG", "Prismatic", "Elite Trainer Box", "ETB"]
+  },
+  {
+    "id": "pokemon-prismatic-booster-bundle",
+    "title": "Pokémon TCG: Prismatic Booster Bundle",
+    "category": "Collectibles",
+    "condition": "Sealed",
+    "availability": "Available",
+    "images": ["Prismatic-Booster-Bundle.jpg"],
+    "description": "Booster bundle from the Prismatic series. Multiple packs in one bundle.",
+    "specifications": {
+      "Type": "Booster Bundle",
+      "Series": "Prismatic",
+      "Condition": "Sealed"
+    },
+    "tags": ["Pokémon", "TCG", "Prismatic", "Booster Bundle"]
+  },
+  {
+    "id": "pokemon-prismatic-mini-tins-8pack",
+    "title": "Pokémon TCG: Prismatic Mini Tins (8-Pack)",
+    "category": "Collectibles",
+    "condition": "Sealed",
+    "availability": "Available",
+    "images": ["Prismatic-Mini-Tins-8Pack.webp"],
+    "description": "Set of 8 mini tins from the Prismatic series. Each tin contains booster packs and collectible items.",
+    "specifications": {
+      "Series": "Prismatic",
+      "Quantity": "8 Mini Tins",
+      "Condition": "Sealed"
+    },
+    "tags": ["Pokémon", "TCG", "Prismatic", "Mini Tins", "8-Pack"]
+  },
+  {
+    "id": "pokemon-surging-pack",
+    "title": "Pokémon TCG: Surging Pack",
+    "category": "Collectibles",
+    "condition": "Sealed",
+    "availability": "Available",
+    "images": ["Surging-Pack.webp"],
+    "description": "Surging pack from the Pokémon Trading Card Game. Features dynamic surging design.",
+    "specifications": {
+      "Type": "Surging Pack",
+      "Condition": "Sealed"
+    },
+    "tags": ["Pokémon", "TCG", "Surging", "Collectibles"]
+  },
+  {
+    "id": "pokemon-surging-2pack",
+    "title": "Pokémon TCG: Surging 2-Pack",
+    "category": "Collectibles",
+    "condition": "Sealed",
+    "availability": "Available",
+    "images": ["Surging-2Pack.webp"],
+    "description": "Two-pack bundle of Surging packs. Great value for collectors.",
+    "specifications": {
+      "Type": "Surging 2-Pack",
+      "Quantity": "2 Packs",
+      "Condition": "Sealed"
+    },
+    "tags": ["Pokémon", "TCG", "Surging", "2-Pack"]
+  },
+  {
+    "id": "pokemon-destined-pack",
+    "title": "Pokémon TCG: Destined Pack",
+    "category": "Collectibles",
+    "condition": "Sealed",
+    "availability": "Available",
+    "images": ["Destined-Pack.jpg.webp", "151-Pack.jpg"],
+    "description": "Destined pack from the Pokémon Trading Card Game. Special edition collectible featuring unique artwork and premium cards.",
+    "specifications": {
+      "Type": "Destined Pack",
+      "Edition": "Special Edition",
+      "Condition": "Sealed"
+    },
+    "tags": ["Pokémon", "TCG", "Destined", "Collectibles", "Special Edition"]
+  },
+  {
+    "id": "pokemon-phasmal-pack",
+    "title": "Pokémon TCG: Phantasmal Pack",
+    "category": "Collectibles",
+    "condition": "Sealed",
+    "availability": "Available",
+    "images": ["Phantasmal-Pack.jpg"],
+    "description": "Phantasmal pack from the Pokémon Trading Card Game. Features unique phantasmal design elements.",
+    "specifications": {
+      "Type": "Phantasmal Pack",
+      "Condition": "Sealed"
+    },
+    "tags": ["Pokémon", "TCG", "Phantasmal", "Collectibles"]
+  },
+  {
+    "id": "pokemon-mega-pack",
+    "title": "Pokémon TCG: Mega Pack",
+    "category": "Collectibles",
+    "condition": "Sealed",
+    "availability": "Available",
+    "images": ["Mega-Pack.jpg"],
+    "description": "Mega pack from the Pokémon Trading Card Game. Larger format pack with more cards.",
+    "specifications": {
+      "Type": "Mega Pack",
+      "Condition": "Sealed"
+    },
+    "tags": ["Pokémon", "TCG", "Mega Pack", "Collectibles"]
+  }
+]
