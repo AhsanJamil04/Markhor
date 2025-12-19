@@ -12,11 +12,10 @@
 ### In the Vercel form:
 
 1. **Key field:** Type exactly: `RESEND_API_KEY`
-   - (Delete what's currently there - `re_Hk4rdnak_...` should NOT be in the Key field)
 
 2. **Value field:** Paste your Resend API key here
    - This is the key you copied from Resend (starts with `re_...`)
-   - It should look like: `re_Hk4rdnak_4RrneZ3XkY5cbxk1mmADo9oz` (your actual key)
+   - It should look like: `re_xxxxxxxxxxxxxxxxxxxxxxxxxxxxx` (your actual key - never share this!)
 
 3. **Environments:** Keep it as "Production, Preview, and Development" (all selected)
 
