@@ -14,8 +14,8 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Save inquiry
-    const inquiryId = saveInquiry({
+    // Save inquiry (now async)
+    const inquiryId = await saveInquiry({
       fullName,
       country,
       contactMethod,
