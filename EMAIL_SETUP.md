@@ -4,6 +4,8 @@
 
 The inquiry form **works perfectly** on Vercel. You have **3 ways** to receive inquiries:
 
+> **📖 For the simplest step-by-step guide, see `EMAIL_SETUP_SIMPLE.md`**
+
 ### Option 1: Email Notifications (Recommended) 📧
 
 Set up email notifications so you receive every inquiry directly in your inbox.
