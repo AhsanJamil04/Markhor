@@ -21,7 +21,9 @@ export default function InquiryForm({ itemName = "", onSuccess }: InquiryFormPro
   const [countrySearch, setCountrySearch] = useState("");
   const [showCountryDropdown, setShowCountryDropdown] = useState(false);
   const [filteredCountries, setFilteredCountries] = useState(countries);
+  const [highlightedIndex, setHighlightedIndex] = useState(-1);
   const countryDropdownRef = useRef<HTMLDivElement>(null);
+  const countryInputRef = useRef<HTMLInputElement>(null);
 
   // Filter countries based on search
   useEffect(() => {
@@ -30,7 +32,30 @@ export default function InquiryForm({ itemName = "", onSuccess }: InquiryFormPro
     } else {
       setFilteredCountries(countries);
     }
+    setHighlightedIndex(-1);
   }, [countrySearch]);
+
+  // Scroll highlighted item into view
+  useEffect(() => {
+    if (highlightedIndex >= 0 && countryDropdownRef.current) {
+      const dropdown = countryDropdownRef.current.querySelector('.country-dropdown-list') as HTMLElement;
+      const highlightedItem = countryDropdownRef.current.querySelector(
+        `[data-country-index="${highlightedIndex}"]`
+      ) as HTMLElement;
+      if (highlightedItem && dropdown) {
+        const itemTop = highlightedItem.offsetTop;
+        const itemBottom = itemTop + highlightedItem.offsetHeight;
+        const dropdownTop = dropdown.scrollTop;
+        const dropdownBottom = dropdownTop + dropdown.offsetHeight;
+
+        if (itemTop < dropdownTop) {
+          dropdown.scrollTop = itemTop;
+        } else if (itemBottom > dropdownBottom) {
+          dropdown.scrollTop = itemBottom - dropdown.offsetHeight;
+        }
+      }
+    }
+  }, [highlightedIndex]);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -40,12 +65,51 @@ export default function InquiryForm({ itemName = "", onSuccess }: InquiryFormPro
         !countryDropdownRef.current.contains(event.target as Node)
       ) {
         setShowCountryDropdown(false);
+        setHighlightedIndex(-1);
       }
     }
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  const selectCountry = (country: string) => {
+    setFormData({ ...formData, country });
+    setCountrySearch("");
+    setShowCountryDropdown(false);
+    setHighlightedIndex(-1);
+  };
+
+  const handleCountryKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (!showCountryDropdown && filteredCountries.length > 0) {
+      if (e.key === "ArrowDown" || e.key === "Enter") {
+        e.preventDefault();
+        setShowCountryDropdown(true);
+        setHighlightedIndex(0);
+        return;
+      }
+    }
+
+    if (showCountryDropdown && filteredCountries.length > 0) {
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        setHighlightedIndex((prev) =>
+          prev < filteredCountries.length - 1 ? prev + 1 : prev
+        );
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        setHighlightedIndex((prev) => (prev > 0 ? prev - 1 : -1));
+      } else if (e.key === "Enter" && highlightedIndex >= 0) {
+        e.preventDefault();
+        selectCountry(filteredCountries[highlightedIndex]);
+      } else if (e.key === "Escape") {
+        e.preventDefault();
+        setShowCountryDropdown(false);
+        setHighlightedIndex(-1);
+        countryInputRef.current?.blur();
+      }
+    }
+  };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -72,6 +136,7 @@ export default function InquiryForm({ itemName = "", onSuccess }: InquiryFormPro
         });
         setCountrySearch("");
         setShowCountryDropdown(false);
+        setHighlightedIndex(-1);
         if (onSuccess) {
           onSuccess();
         }
@@ -122,6 +187,7 @@ export default function InquiryForm({ itemName = "", onSuccess }: InquiryFormPro
         </label>
         <div className="relative">
           <input
+            ref={countryInputRef}
             type="text"
             id="country"
             required
@@ -134,6 +200,7 @@ export default function InquiryForm({ itemName = "", onSuccess }: InquiryFormPro
               }
             }}
             onFocus={() => setShowCountryDropdown(true)}
+            onKeyDown={handleCountryKeyDown}
             className="input-field pr-10"
             placeholder="Search or select your country"
             autoComplete="off"
@@ -155,17 +222,22 @@ export default function InquiryForm({ itemName = "", onSuccess }: InquiryFormPro
 
         {/* Country Dropdown */}
         {showCountryDropdown && filteredCountries.length > 0 && (
-          <div className="absolute z-50 w-full mt-2 bg-white border-2 border-gray-200 rounded-xl shadow-elegant max-h-64 overflow-y-auto animate-slide-up">
-            {filteredCountries.map((country) => (
+          <div 
+            className="country-dropdown-list absolute z-50 w-full mt-2 bg-white border-2 border-gray-200 rounded-xl shadow-elegant max-h-64 overflow-y-auto animate-slide-up"
+            role="listbox"
+          >
+            {filteredCountries.map((country, index) => (
               <button
                 key={country}
                 type="button"
-                onClick={() => {
-                  setFormData({ ...formData, country });
-                  setCountrySearch("");
-                  setShowCountryDropdown(false);
-                }}
-                className="w-full text-left px-4 py-3 hover:bg-primary-50 hover:text-primary-700 transition-colors border-b border-gray-100 last:border-b-0 flex items-center group"
+                data-country-index={index}
+                onClick={() => selectCountry(country)}
+                onMouseEnter={() => setHighlightedIndex(index)}
+                className={`w-full text-left px-4 py-3 transition-colors border-b border-gray-100 last:border-b-0 flex items-center group ${
+                  highlightedIndex === index
+                    ? "bg-primary-50 text-primary-700"
+                    : "hover:bg-primary-50 hover:text-primary-700"
+                }`}
               >
                 <svg
                   className="w-5 h-5 mr-3 text-gray-400 group-hover:text-primary-600"
