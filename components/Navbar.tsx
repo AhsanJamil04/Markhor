@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
@@ -19,9 +20,20 @@ export default function Navbar() {
     <nav className="bg-white/90 backdrop-blur-xl shadow-elegant sticky top-0 z-50 border-b border-gray-200/50">
       <div className="container-custom">
         <div className="flex justify-between items-center h-20">
-          <Link href="/" className="text-3xl font-bold gradient-text hover:scale-110 transition-transform duration-300 relative group">
-            Markhor
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-600 to-primary-800 group-hover:w-full transition-all duration-300"></span>
+          <Link href="/" className="flex items-center space-x-3 hover:scale-105 transition-transform duration-300 group">
+            <div className="relative w-10 h-10">
+              <Image
+                src="/logo-icon.svg"
+                alt="Markhor Extreme Inc. Logo"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-xl font-bold gradient-text leading-tight">MARKHOR</span>
+              <span className="text-xs font-semibold text-primary-700 leading-tight">EXTREME INC.</span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}

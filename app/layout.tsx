@@ -7,9 +7,9 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Markhor - Collectibles & Electronics Export | Canada",
-  description: "Canada-based business exporting authentic collectibles and electronics to overseas clients. Specializing in Pokémon collectibles and gaming electronics.",
-  keywords: "collectibles, electronics, Pokémon, PS5, export, Canada, trading cards",
+  title: "Markhor Extreme Inc. - Collectibles & Electronics Export | Canada",
+  description: "Markhor Extreme Inc. - Canada-based business exporting authentic collectibles and electronics to overseas clients. Specializing in Pokémon collectibles and gaming electronics.",
+  keywords: "Markhor Extreme Inc, collectibles, electronics, Pokémon, PS5, export, Canada, trading cards",
 };
 
 export default function RootLayout({

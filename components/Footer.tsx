@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -6,9 +7,22 @@ export default function Footer() {
       <div className="container-custom py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           <div>
-            <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-              Markhor
-            </h3>
+            <div className="flex items-center space-x-3 mb-4">
+              <div className="relative w-12 h-12">
+                <Image
+                  src="/logo-icon.svg"
+                  alt="Markhor Extreme Inc. Logo"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <div className="flex flex-col">
+                <h3 className="text-xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent leading-tight">
+                  MARKHOR
+                </h3>
+                <span className="text-xs font-semibold text-primary-400 leading-tight">EXTREME INC.</span>
+              </div>
+            </div>
             <p className="text-gray-300 leading-relaxed">
               Canada-based exporter of authentic collectibles and electronics to
               overseas clients worldwide.
@@ -79,7 +93,7 @@ export default function Footer() {
         </div>
         <div className="border-t border-gray-700 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center text-gray-400">
-            <p>&copy; {new Date().getFullYear()} Markhor. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Markhor Extreme Inc. All rights reserved.</p>
             <p className="mt-4 md:mt-0">Made with ❤️ for global clients</p>
           </div>
         </div>

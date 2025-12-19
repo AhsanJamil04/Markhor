@@ -1,8 +1,8 @@
 import InquiryForm from "@/components/InquiryForm";
 
 export const metadata = {
-  title: "Contact Us | Markhor",
-  description: "Get in touch with Markhor for inquiries about collectibles and electronics export from Canada.",
+  title: "Contact Us | Markhor Extreme Inc.",
+  description: "Get in touch with Markhor Extreme Inc. for inquiries about collectibles and electronics export from Canada.",
 };
 
 export default function ContactPage() {

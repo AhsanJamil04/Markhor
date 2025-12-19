@@ -68,7 +68,7 @@ export default function Home() {
           <div className="text-center mb-16 animate-fade-in">
             <span className="badge-primary mb-4">Our Commitment</span>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Why Choose <span className="gradient-text">Markhor</span>
+              Why Choose <span className="gradient-text">Markhor Extreme Inc.</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               We ensure authenticity, quality, and seamless export processes for

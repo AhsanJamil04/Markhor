@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "About Us | Markhor",
-  description: "Learn about Markhor, a Canada-based business exporting collectibles and electronics to overseas clients.",
+  title: "About Us | Markhor Extreme Inc.",
+  description: "Learn about Markhor Extreme Inc., a Canada-based business exporting collectibles and electronics to overseas clients.",
 };
 
 export default function AboutPage() {
@@ -10,7 +10,7 @@ export default function AboutPage() {
         <div className="text-center mb-12">
           <span className="badge-primary mb-4">Our Story</span>
           <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-            About <span className="gradient-text">Markhor</span>
+            About <span className="gradient-text">Markhor Extreme Inc.</span>
           </h1>
         </div>
 
@@ -23,7 +23,7 @@ export default function AboutPage() {
             Canada-Based Export Business
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed">
-            Markhor is a Canada-based business specializing in the export of
+            Markhor Extreme Inc. is a Canada-based business specializing in the export of
             authentic collectibles and electronics to overseas clients. We
             understand the unique needs of international buyers and provide
             reliable, quality-assured products with seamless export processes.

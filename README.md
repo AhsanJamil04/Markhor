@@ -1,6 +1,6 @@
-# Markhor Website - Portfolio & Catalog
+# Markhor Extreme Inc. - Portfolio & Catalog Website
 
-A professional portfolio website for showcasing collectibles and electronics to overseas clients. Inquiry-only, no ecommerce functionality.
+A professional portfolio website for Markhor Extreme Inc., showcasing collectibles and electronics to overseas clients. Inquiry-only, no ecommerce functionality.
 
 ## Features
 

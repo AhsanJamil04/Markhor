@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return {
-    title: `${item.title} | Markhor Inventory`,
+    title: `${item.title} | Markhor Extreme Inc. Inventory`,
     description: item.description,
     keywords: item.tags?.join(", "),
   };
