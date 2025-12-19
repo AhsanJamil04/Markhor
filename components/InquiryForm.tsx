@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useRef, useEffect } from "react";
+import { countries, searchCountries } from "@/lib/countries";
 
 interface InquiryFormProps {
   itemName?: string;
@@ -17,6 +18,34 @@ export default function InquiryForm({ itemName = "", onSuccess }: InquiryFormPro
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [countrySearch, setCountrySearch] = useState("");
+  const [showCountryDropdown, setShowCountryDropdown] = useState(false);
+  const [filteredCountries, setFilteredCountries] = useState(countries);
+  const countryDropdownRef = useRef<HTMLDivElement>(null);
+
+  // Filter countries based on search
+  useEffect(() => {
+    if (countrySearch) {
+      setFilteredCountries(searchCountries(countrySearch));
+    } else {
+      setFilteredCountries(countries);
+    }
+  }, [countrySearch]);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        countryDropdownRef.current &&
+        !countryDropdownRef.current.contains(event.target as Node)
+      ) {
+        setShowCountryDropdown(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -41,6 +70,8 @@ export default function InquiryForm({ itemName = "", onSuccess }: InquiryFormPro
           itemOfInterest: itemName,
           message: "",
         });
+        setCountrySearch("");
+        setShowCountryDropdown(false);
         if (onSuccess) {
           onSuccess();
         }
@@ -85,19 +116,98 @@ export default function InquiryForm({ itemName = "", onSuccess }: InquiryFormPro
         />
       </div>
 
-      <div>
+      <div className="relative" ref={countryDropdownRef}>
         <label htmlFor="country" className="block text-sm font-semibold text-gray-700 mb-2">
           Country <span className="text-red-500">*</span>
         </label>
-        <input
-          type="text"
-          id="country"
-          required
-          value={formData.country}
-          onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-          className="input-field"
-          placeholder="Enter your country"
-        />
+        <div className="relative">
+          <input
+            type="text"
+            id="country"
+            required
+            value={countrySearch || formData.country}
+            onChange={(e) => {
+              setCountrySearch(e.target.value);
+              setShowCountryDropdown(true);
+              if (!e.target.value) {
+                setFormData({ ...formData, country: "" });
+              }
+            }}
+            onFocus={() => setShowCountryDropdown(true)}
+            className="input-field pr-10"
+            placeholder="Search or select your country"
+            autoComplete="off"
+          />
+          <svg
+            className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            />
+          </svg>
+        </div>
+
+        {/* Country Dropdown */}
+        {showCountryDropdown && filteredCountries.length > 0 && (
+          <div className="absolute z-50 w-full mt-2 bg-white border-2 border-gray-200 rounded-xl shadow-elegant max-h-64 overflow-y-auto animate-slide-up">
+            {filteredCountries.map((country) => (
+              <button
+                key={country}
+                type="button"
+                onClick={() => {
+                  setFormData({ ...formData, country });
+                  setCountrySearch("");
+                  setShowCountryDropdown(false);
+                }}
+                className="w-full text-left px-4 py-3 hover:bg-primary-50 hover:text-primary-700 transition-colors border-b border-gray-100 last:border-b-0 flex items-center group"
+              >
+                <svg
+                  className="w-5 h-5 mr-3 text-gray-400 group-hover:text-primary-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                </svg>
+                <span className="font-medium">{country}</span>
+              </button>
+            ))}
+          </div>
+        )}
+
+        {/* No results message */}
+        {showCountryDropdown && countrySearch && filteredCountries.length === 0 && (
+          <div className="absolute z-50 w-full mt-2 bg-white border-2 border-gray-200 rounded-xl shadow-elegant p-4 animate-slide-up">
+            <p className="text-gray-500 text-center">No countries found matching "{countrySearch}"</p>
+          </div>
+        )}
+
+        {/* Selected country indicator */}
+        {formData.country && !showCountryDropdown && (
+          <div className="mt-2 flex items-center text-sm text-primary-600">
+            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+            Selected: <span className="font-semibold ml-1">{formData.country}</span>
+          </div>
+        )}
       </div>
 
       <div>

@@ -3,7 +3,9 @@ import fs from "fs";
 import path from "path";
 
 // Check if we're in a serverless environment (Vercel)
-const isServerless = process.env.VERCEL || process.env.NODE_ENV === "production";
+// Only treat as serverless if VERCEL env var is explicitly set
+// On regular servers, this will be false and use file system storage
+const isServerless = !!process.env.VERCEL;
 
 async function sendEmailNotification(submission: InquirySubmission) {
   // Only send email if RESEND_API_KEY and NOTIFICATION_EMAIL are set
