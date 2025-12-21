@@ -37,3 +37,7 @@ next-env.d.ts
 
 # inquiries storage
 /inquiries
+
+# local setup guides (keep locally, don't commit)
+VERCEL_SETUP_GUIDE.md
+EMAIL_SETUP*.md
